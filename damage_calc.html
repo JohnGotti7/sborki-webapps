@@ -2,12 +2,69 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Калькулятор среднего урона</title>
+
 <style>
-body { font-family: Arial, sans-serif; margin: 20px; }
-input { width: 120px; margin-bottom: 6px; }
-.box { border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; }
+/* ===== Общие настройки ===== */
+body {
+  margin: 0;
+  padding: 16px;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+/* Заголовки */
+h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+/* Блоки вариантов */
+.box {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* Подписи */
+label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+/* Поля ввода */
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #555;
+  border-radius: 6px;
+}
+
+/* Результаты */
+.result {
+  margin-top: 10px;
+  font-size: 19px;
+  font-weight: bold;
+}
 </style>
+
 <script>
 function calc() {
   const b1 = Number(document.getElementById("b1").value);
@@ -16,39 +73,4 @@ function calc() {
   const k2 = Number(document.getElementById("k2").value);
 
   const d1 = b1 ? Math.round(b1 * (1 + k1 / 100)) : 0;
-  const d2 = b2 ? Math.round(b2 * (1 + k2 / 100)) : 0;
-
-  document.getElementById("r1").textContent = d1;
-  document.getElementById("r2").textContent = d2;
-
-  let best = "—";
-  if (d1 > d2) best = "Вариант 1";
-  else if (d2 > d1) best = "Вариант 2";
-
-  document.getElementById("best").textContent = best;
-}
-</script>
-</head>
-
-<body oninput="calc()">
-
-<h2>Калькулятор среднего урона</h2>
-
-<div class="box">
-<b>Вариант 1</b><br>
-База: <input id="b1" type="number"><br>
-КУ (%): <input id="k1" type="number"><br>
-Средний урон: <b id="r1">0</b>
-</div>
-
-<div class="box">
-<b>Вариант 2</b><br>
-База: <input id="b2" type="number"><br>
-КУ (%): <input id="k2" type="number"><br>
-Средний урон: <b id="r2">0</b>
-</div>
-
-<h3>Лучший: <span id="best">—</span></h3>
-
-</body>
-</html>
+  const d2 = b2 ? Ma
